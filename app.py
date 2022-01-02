@@ -48,6 +48,16 @@ with col2:
 with col3:
     st.image('politics.png')
 
+blank = pd.DataFrame(columns = ['agent', 'aspect', 'engine', 'anchor', 'conflict'])
+
+blank_csv = blank.to_csv(index=False).encode('utf-8')
+
+st.download_button(
+        label="Download a blank CSV",
+        data=blank_csv,
+        file_name='blank_cardset.csv',
+        mime='text/csv',
+    )
 uploaded_file = st.file_uploader("Choose a file")
 
 if uploaded_file is not None:
